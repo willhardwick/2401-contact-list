@@ -7,12 +7,12 @@ const dummyContacts = [
     { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
   ];
 
-function ContactList({setSelectedContactId}) {
-    const [contacts, setContacts] = useState(dummyContacts)
+function ContactList({ setSelectedContactId }) {
+    const [contacts, setContacts] = useState(null)
     useEffect(() => {
         async function fetchContacts() {
             try {
-                const response = await fetch(`https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users`)
+                const response = await fetch(`https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users/`)
                 const json = await response.json();
                 setContacts(json);
                 // console.log(contacts)
